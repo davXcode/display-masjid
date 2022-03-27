@@ -1,0 +1,12 @@
+Berikut tutorial dan penjelasan:
+1. Semua konfigurasi variabel/folder/file/pengaturan terdapat pada file config.js
+2. Folder gambar terdapat di folder assets dengan nama folder img
+3. Folder audio terdapat di folder assets dengan nama folder sound
+4. Folder video terdapat di folder assets dengan nama folder video
+5. Untuk menambahkan/mengubah gambar silahkan ubah di file config.js dengan nama variabel image_array
+6. Untuk menambahkan/mengubah video silahkan ubah di file config.js dengan nama variabel video_array
+7. Untuk menambahkan/mengubah audio silahkan ubah di file config.js cari beberapa variabel yaitu
+    tarhim_subuh_maghrib, tarhim_alternatif, adzan_subuh, adzan_dzuhur, adzan_ashar, adzan_maghrib, adzan_isya, random_murotal
+8. Untuk mengubah nama imam silahkan ubah di file config.js cari beberapa variabel yaitu imam_subuh, imam_dzuhur, imam_ashar, imam_maghrib, imam_isya
+9. Untuk mengubah kecepatan tiap gambar dan berganti ke video silahkan ubah di file config.js dengan variabel timeout_video
+10. Untuk mengubah durasi overlay/layar hitam setelah adzan silahkan ubah di file config.js dengan variabel interval_overlay

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			.container {
+				min-width: 100%;
+			}
+
+			main {
+				position: fixed;
+				bottom: 0;
+				color: #f1f1f1;
+				width: 100%;
+			}
+
+			#my-video {
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				min-width: 100%;
+				min-height: 100%;
+			}
+
+			#overlay{
+				display: none;
+				color: white;
+				position:fixed;
+				z-index:999;
+				width:100%;
+				height:100%;
+				background-color: black;
+				background-color:rgb(0, 0, 0)
+			}
+
+			#overlay_text{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: 60px;
+			color: white;
+			transform: translate(-50%,-50%);
+			-ms-transform: translate(-50%,-50%);
+			}
+		</style>
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="assets/js/moment.min.js"></script>
+		<script type="text/javascript" src="assets/js/PrayTimes.js"></script>
+		<script type="text/javascript" src="config.js"></script>
+		<title>Adzan</title>
+	</head>
+	<body onload=startTime()>
+		<div id="overlay">
+			<div id="overlay_text"></div>
+		</div>		
+		<video autoplay muted id="my-video"></video>
+		<main id="slider" style="height: 100%;"> 
+			<div class="container" style="background: rgba(24, 26, 24, 0.7);">
+				<div class="row text-center">
+					<div class="col-sm-3 text-white" style="padding-top: 3%;">
+						<div class="h5 font-weight-bold m-0" id="tgl"></div>
+						<div class="h5 font-weight-bold m-0" style="color: #718e56" id="tglh"></div>
+					</div>
+					<div class="col-sm-6 p-2">
+						<div class="font-weight-bold" style="font-size:60px; font-family: Arial; color: #ffc308;" id="nm_masjid"></div>
+						<div class="h5 text-white" id="alm_masjid"></div>
+						<div class="h5 text-white" id="ket_lain"></div>
+					</div>
+					<div class="col-sm-3" style="padding-top: 2%;">
+						<div class="font-weight-bold text-danger" style="font-size:60px;" id="jam"></div>
+					</div>
+				</div>
+			</div>
+			<div class="container" style="min-height:55%;background: rgba(24, 26, 24, 0.3);">
+				<div class="font-weight-bold text-white text-center" style="font-size:80px;padding-top: 5%;" id="judul_isi"></div>
+				<div class="font-weight-bold text-white text-center" style="font-size:60px;" id="isi"></div>
+			</div>
+			<div class="container" style="background: rgba(24, 26, 24, 0.7);">
+				<div class="row text-center">
+					<div class="col p-0 m-0">
+						<div>
+							<div class="h5" style="min-height: 50px;color: #4f8beb;">
+								<p class="p-0 m-0" style="color: white;">
+									Jadwal Imam
+								</p>
+								Hari ini
+							</div>
+						</div>
+						<div class="p-2" style="background-color:rgba(225, 76, 33, 0.4);">
+							<div class="font-weight-bold h1" id="nm1">TERBIT</div>
+							<div class="font-weight-bold h1" id="inm1">-</div>
+						</div>
+					</div>
+					<div class="col p-0 m-0">
+						<div>
+							<div class="h5 pt-3" id="imam_subuh" style="min-height: 50px;color: #4f8beb;">-</div>
+						</div>
+						<div class="p-2" style="background-color:rgba(18, 91, 170, 0.4);">
+							<div class="font-weight-bold h1" id="nm0">SUBUH</div>
+							<div class="font-weight-bold h1" id="inm0">-</div>
+						</div>
+					</div>
+					<div class="col p-0 m-0">
+						<div>
+							<div class="h5 pt-3" id="imam_dzuhur" style="min-height: 50px;color: #4f8beb;">-</div>
+						</div>
+						<div class="p-2" style="background-color:rgba(220, 124, 3, 0.4);">
+							<div class="font-weight-bold h1" id="nm2">-</div>
+							<div class="font-weight-bold h1" id="inm2">-</div>
+						</div>
+					</div>
+					<div class="col p-0 m-0">
+						<div>
+							<div class="h5 pt-3" id="imam_ashar" style="min-height: 50px;color: #4f8beb;">-</div>
+						</div>
+						<div class="p-2" style="background-color:rgba(61, 35, 144, 0.4);">
+							<div class="font-weight-bold h1" id="nm3">ASHAR</div>
+							<div class="font-weight-bold h1" id="inm3">-</div>
+						</div>
+					</div>
+					<div class="col p-0 m-0">
+						<div>
+							<div class="h5 pt-3" id="imam_maghrib" style="min-height: 50px;color: #4f8beb;">-</div>
+						</div>
+						<div class="p-2" style="background-color:rgba(176, 36, 39, 0.4);">
+							<div class="font-weight-bold h1" id="nm4">MAGHRIB</div>
+							<div class="font-weight-bold h1" id="inm4">-</div>
+						</div>
+					</div>
+					<div class="col p-0 m-0">
+						<div>
+							<div class="h5 pt-3" id="imam_isya" style="min-height: 50px;color: #4f8beb;">-</div>
+						</div>
+						<div class="p-2" style="background-color:rgba(1, 92, 83, 0.4);">
+							<div class="font-weight-bold h1" id="nm5">ISYA</div>
+							<div class="font-weight-bold h1" id="inm5">-</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<marquee class="p-2 h2 text-white" id="running_text" behavior="scroll" direction="left"></marquee>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
